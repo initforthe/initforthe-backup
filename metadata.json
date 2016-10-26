@@ -1,0 +1,15 @@
+{
+  "name": "initforthe-backup",
+  "version": "0.1.0",
+  "author": "initforthe",
+  "summary": "Puppet management of the backup rubygem",
+  "license": "Apache-2.0",
+  "source": "https://github.com/initforthe/initforthe-backup.git",
+  "project_page": "https://github.com/initforthe/initforthe-backup",
+  "issues_url": "https://github.com/initforthe/initforthe-backup/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ],
+  "data_provider": null
+}
+
