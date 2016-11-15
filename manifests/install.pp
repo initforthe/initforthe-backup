@@ -26,7 +26,7 @@ class backup::install {
     ensure  => directory,
     owner   => 'root',
     group   => 'root',
-    mode    => '0550',
+    mode    => '0555',
     purge   => $::backup::purge_jobs,
     force   => $::backup::purge_jobs,
     recurse => $::backup::purge_jobs,
@@ -36,7 +36,7 @@ class backup::install {
     ensure  => directory,
     owner   => 'root',
     group   => 'root',
-    mode    => '0550',
+    mode    => '0555',
     require => File['/etc/backup'],
   }
 
