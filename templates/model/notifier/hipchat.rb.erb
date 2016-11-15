@@ -1,0 +1,32 @@
+  notify_by Hipchat do |hipchat|
+    <%- if @hipchat_on_success -%>
+    hipchat.on_success = <%= @hipchat_on_success %>
+    <%- end -%>
+    <%- if @hipchat_on_warning -%>
+    hipchat.on_warning = <%= @hipchat_on_warning %>
+    <%- end -%>
+    <%- if @hipchat_on_failure -%>
+    hipchat.on_failure = <%= @hipchat_on_failure %>
+    <%- end -%>
+    <%- if @hipchat_success_color -%>
+    hipchat.success_color = '<%= @hipchat_success_color %>'
+    <%- end -%>
+    <%- if @hipchat_warning_color -%>
+    hipchat.warning_color = '<%= @hipchat_warning_color %>'
+    <%- end -%>
+    <%- if @hipchat_failure_color -%>
+    hipchat.failure_color = '<%= @hipchat_failure_color %>'
+    <%- end -%>
+    <%- if @hipchat_token -%>
+    hipchat.token = '<%= @hipchat_token %>'
+    <%- end -%>
+    <%- if @hipchat_from -%>
+    hipchat.from = '<%= @hipchat_from %>'
+    <%- end -%>
+    <%- if @hipchat_rooms_notified -%>
+    hipchat.rooms_notified = <%= Array(@hipchat_rooms_notified) %>
+    <%- end -%>
+    <%- if @hipchat_api_version -%>
+    hipchat.api_version = '<%= @hipchat_api_version %>'
+    <%- end -%>
+  end

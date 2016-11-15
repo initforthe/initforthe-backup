@@ -1,0 +1,26 @@
+  database Redis do |db|
+    <%- if @redis_mode -%>
+    db.mode               = <%= ":#{@redis_mode}" %>
+    <%- end -%>
+    <%- if @redis_rdb_path -%>
+    db.rdb_path           = "<%= @redis_rdb_path %>"
+    <%- end -%>
+    <%- if @redis_invoke_save -%>
+    db.invoke_save        = <%= @redis_invoke_save %>
+    <%- end -%>
+    <%- if @redis_host -%>
+    db.host               = "<%= @redis_host %>"
+    <%- end -%>
+    <%- if @redis_port -%>
+    db.port               = <%= @redis_port %>
+    <%- end -%>
+    <%- if @redis_socket -%>
+    db.socket             = "<%= @redis_socket %>"
+    <%- end -%>
+    <%- if @redis_password -%>
+    db.password           = "<%= @redis_password %>"
+    <%- end -%>
+    <%- if @redis_additional_options -%>
+    db.additional_options = <%= @redis_additional_options %>
+    <%- end -%>
+  end

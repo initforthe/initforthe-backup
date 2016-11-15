@@ -1,0 +1,17 @@
+  notify_by PagerDuty do |pagerduty|
+    <%- if @pagerduty_on_success -%>
+    pagerduty.on_success = <%= @pagerduty_on_success %>
+    <%- end -%>
+    <%- if @pagerduty_on_warning -%>
+    pagerduty.on_warning = <%= @pagerduty_on_warning %>
+    <%- end -%>
+    <%- if @pagerduty_on_failure -%>
+    pagerduty.on_failure = <%= @pagerduty_on_failure %>
+    <%- end -%>
+    <%- if @pagerduty_service_key -%>
+    pagerduty.service_key = '<%= @pagerduty_service_key %>'
+    <%- end -%>
+    <%- if @pagerduty_resolve_on_warning -%>
+    pagerduty.resolve_on_warning = <%= @pagerduty_resolve_on_warning %>
+    <%- end -%>
+  end

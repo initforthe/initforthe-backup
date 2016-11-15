@@ -1,0 +1,38 @@
+  notify_by DataDog do |datadog|
+    <%- if @datadog_on_success -%>
+    datadog.on_success           = <%= @datadog_on_success %>
+    <%- end -%>
+    <%- if @datadog_on_warning -%>
+    datadog.on_warning           = <%= @datadog_on_warning %>
+    <%- end -%>
+    <%- if @datadog_on_failure -%>
+    datadog.on_failure           = <%= @datadog_on_failure %>
+    <%- end -%>
+    <%- if @datadog_api_key -%>
+    datadog.api_key              = '<%= @datadog_api_key %>'
+    <%- end -%>
+    <%- if @datadog_title -%>
+    datadog.title                = "<%= @datadog_title %>"
+    <%- end -%>
+    <%- if @datadog_host -%>
+    datadog.host                 = '<%= @datadog_host %>'
+    <%- end -%>
+    <%- if @datadog_tags -%>
+    datadog.tags                 = <%= @datadog_tags %>
+    <%- end -%>
+    <%- if @datadog_alert_type -%>
+    datadog.alert_type           = '<%= @datadog_alert_type %>'
+    <%- end -%>
+    <%- if @datadog_source_type_name -%>
+    datadog.source_type_name     = '<%= @datadog_source_type_name %>'
+    <%- end -%>
+    <%- if @datadog_priority -%>
+    datadog.priority             = '<%= @datadog_priority %>'
+    <%- end -%>
+    <%- if @datadog_date_happened -%>
+    datadog.date_happened        = <%= @datadog_date_happened %>
+    <%- end -%>
+    <%- if @datadog_aggregation_key -%>
+    datadog.aggregation_key      = '<%= @datadog_aggregation_key %>'
+    <%- end -%>
+  end

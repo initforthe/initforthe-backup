@@ -1,0 +1,35 @@
+  notify_by Ses do |ses|
+    <%- if @ses_on_success -%>
+    ses.on_success = <%= @ses_on_success %>
+    <%- end -%>
+    <%- if @ses_on_warning -%>
+    ses.on_warning = <%= @ses_on_warning %>
+    <%- end -%>
+    <%- if @ses_on_failure -%>
+    ses.on_failure = <%= @ses_on_failure %>
+    <%- end -%>
+    <%- if @ses_access_key_id -%>
+    ses.access_key_id = '<%= @ses_access_key_id %>'
+    <%- end -%>
+    <%- if @ses_secret_access_key -%>
+    ses.secret_access_key = '<%= @ses_secret_access_key %>'
+    <%- end -%>
+    <%- if @ses_region -%>
+    ses.region = '<%= @ses_region %>'
+    <%- end -%>
+    <%- if @ses_from -%>
+    ses.from = '<%= @ses_from %>'
+    <%- end -%>
+    <%- if @ses_to -%>
+    ses.to = '<%= @ses_to %>'
+    <%- end -%>
+    <%- if @ses_cc -%>
+    ses.cc = '<%= @ses_cc %>'
+    <%- end -%>
+    <%- if @ses_bcc -%>
+    ses.bcc = '<%= @ses_bcc %>'
+    <%- end -%>
+    <%- if @ses_reply_to -%>
+    ses.reply_to = '<%= @ses_reply_to %>'
+    <%- end -%>
+  end

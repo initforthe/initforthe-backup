@@ -1,0 +1,17 @@
+  notify_by Prowl do |prowl|
+    <%- if @prowl_on_success -%>
+    prowl.on_success = <%= @prowl_on_success %>
+    <%- end -%>
+    <%- if @prowl_on_warning -%>
+    prowl.on_warning = <%= @prowl_on_warning %>
+    <%- end -%>
+    <%- if @prowl_on_failure -%>
+    prowl.on_failure = <%= @prowl_on_failure %>
+    <%- end -%>
+    <%- if @prowl_application -%>
+    prowl.application = '<%= @prowl_application %>'
+    <%- end -%>
+    <%- if @prowl_api_key -%>
+    prowl.api_key     = '<%= @prowl_api_key %>'
+    <%- end -%>
+  end

@@ -1,0 +1,17 @@
+  notify_by Command do |cmd|
+    <%- if @cmd_on_success -%>
+    cmd.on_success = <%= @cmd_on_success %>
+    <%- end -%>
+    <%- if @cmd_on_warning -%>
+    cmd.on_warning = <%= @cmd_on_warning %>
+    <%- end -%>
+    <%- if @cmd_on_failure -%>
+    cmd.on_failure = <%= @cmd_on_failure %>
+    <%- end -%>
+    <%- if @cmd_command -%>
+    cmd.command = '<%= @cmd_command %>'
+    <%- end -%>
+    <%- if @cmd_args -%>
+    cmd.args = <%= Array(@cmd_args) %>
+    <%- end -%>
+  end

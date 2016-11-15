@@ -1,0 +1,10 @@
+  store_with FTP do |server|
+    server.username     = '<%= @ftp_username %>'
+    server.password     = '<%= @ftp_password %>'
+    server.ip           = '<%= @ftp_ip %>'
+    server.port         = <%= @ftp_port %>
+    server.path         = '<%= @ftp_path %>'
+    server.keep         = <%= @ftp_keep %>
+    server.passive_mode = <%= @ftp_passive_mode %>
+    server.timeout      = <%= @ftp_timeout %>
+  end

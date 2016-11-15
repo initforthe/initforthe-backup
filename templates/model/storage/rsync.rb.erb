@@ -1,0 +1,13 @@
+  store_with RSync do |storage|
+    storage.mode = <%= ":#{@rsync_mode}" %>
+    storage.host = '<%= @rsync_host %>'
+    storage.port = <%= @rsync_port %>
+    storage.ssh_user = '<%= @rsync_ssh_user %>'
+    storage.additional_ssh_options = "<%= @rsync_additional_ssh_options %>"
+    storage.rsync_user = '<%= @rsync_user %>'
+    storage.rsync_password = '<%= @rsync_password %>'
+    storage.rsync_password_file = '<%= @rsync_password_file %>'
+    storage.additional_rsync_options = <%= @rsync_additional_rsync_options %>
+    storage.compress = <%= @rsync_compress %>
+    storage.path = '<%= @rsync_path %>'
+  end

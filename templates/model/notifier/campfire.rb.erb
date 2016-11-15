@@ -1,0 +1,20 @@
+  notify_by Campfire do |campfire|
+    <%- if @campfire_on_success -%>
+    campfire.on_success = <%= @campfire_on_success %>
+    <%- end -%>
+    <%- if @campfire_on_warning -%>
+    campfire.on_warning = <%= @campfire_on_warning %>
+    <%- end -%>
+    <%- if @campfire_on_failure -%>
+    campfire.on_failure = <%= @campfire_on_failure %>
+    <%- end -%>
+    <%- if @campfire_api_token -%>
+    campfire.api_token = '<%= @campfire_api_token %>'
+    <%- end -%>
+    <%- if @campfire_subdomain -%>
+    campfire.subdomain = '<%= @campfire_subdomain %>'
+    <%- end -%>
+    <%- if @campfire_room_id -%>
+    campfire.room_id   = '<%= @campfire_room_id %>'
+    <%- end -%>
+  end

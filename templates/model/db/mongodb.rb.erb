@@ -1,0 +1,28 @@
+  database MongoDB do |db|
+    db.name               = "<%= @mongodb_name %>"
+    <%- if @mongodb_username -%>
+    db.username           = "<%= @mongodb_username %>"
+    db.password           = "<%= @mongodb_password %>"
+    <%- end -%>
+    <%- if @mongodb_host -%>
+    db.host               = "<%= @mongodb_host %>"
+    <%- end -%>
+    <%- if @mongodb_port -%>
+    db.port               = <%= @mongodb_port %>
+    <%- end -%>
+    <%- if @mongodb_ipv6 -%>
+    db.ipv6               = <%= @mongodb_ipv6 %>
+    <%- end -%>
+    <%- if @mongodb_only_collections -%>
+    db.only_collections   = <%= @mongodb_only_collections %>
+    <%- end -%>
+    <%- if @mongodb_additional_options -%>
+    db.additional_options = "<%= @mongodb_additional_options %>"
+    <%- end -%>
+    <%- if @mongodb_lock -%>
+    db.lock               = <%= @mongodb_lock %>
+    <%- end -%>
+    <%- if @mongodb_oplog -%>
+    db.oplog              = <%= @mongodb_oplog %>
+    <%- end -%>
+  end

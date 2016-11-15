@@ -1,0 +1,5 @@
+  compress_with Gzip<% if @gzip_rsyncable or @gzip_compression_level %> do |compression|
+    compression.level     = <%= @gzip_compression_level %>
+    compression.rsyncable = <%= @gzip_rsyncable %>
+  end
+  <%- end -%>

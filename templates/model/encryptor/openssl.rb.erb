@@ -1,0 +1,9 @@
+  encrypt_with OpenSSL do |encryption|
+    <%- if @openssl_password -%>
+    encryption.password      = '<%= @openssl_password %>'
+    <%- elsif @openssl_password_file -%>
+    encryption.password_file = '<%= @openssl_password_file %>'
+    <%- end -%>
+    encryption.base64        = <%= @openssl_base64 %>
+    encyrption.salt          = <%= @openssl_salt %>
+  end

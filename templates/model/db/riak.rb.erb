@@ -1,0 +1,11 @@
+database Riak do |db|
+  <%- if @riak_node -%>
+  db.node   = "<%= @riak_node %>"
+  <%- end -%>
+  <%- if @riak_cookie -%>
+  db.cookie = "<%= @riak_cookie %>"
+  <%- end -%>
+  <%- if @riak_user -%>
+  db.user   = "<%= @riak_user %>"
+  <%- end -%>
+end

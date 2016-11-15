@@ -1,0 +1,17 @@
+  store_with Dropbox do |db|
+    db.api_key       = '<%= @dropbox_api_key %>'
+    db.api_secret    = '<%= @dropbox_api_secret %>'
+    db.cache_path    = '<%= @dropbox_cache_path %>'
+    db.access_type   = <%= ":#{@dropbox_access_type}" %>
+    db.path          = '<%= @dropbox_path %>'
+    db.keep          = <%= @dropbox_keep %>
+    <%- if @dropbox_chunk_size -%>
+    db.chunk_size    = <%= @dropbox_chunk_size %>
+    <%- end -%>
+    <%- if @dropbox_max_retries -%>
+    db.max_retries   = <%= @dropbox_max_retries %>
+    <%- end -%>
+    <%- if @dropbox_retry_waitsec -%>
+    db.retry_waitsec = <%= @dropbox_retry_waitsec %>
+    <%- end -%>
+  end

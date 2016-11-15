@@ -1,0 +1,50 @@
+  notify_by Mail do |mail|
+    <%- if @mail_on_success -%>
+    mail.on_success           = <%= @mail_on_success %>
+    <%- end -%>
+    <%- if @mail_on_warning -%>
+    mail.on_warning           = <%= @mail_on_warning %>
+    <%- end -%>
+    <%- if @mail_on_failure -%>
+    mail.on_failure           = <%= @mail_on_failure %>
+    <%- end -%>
+    <%- if @mail_from -%>
+    mail.from                 = '<%= @mail_from %>'
+    <%- end -%>
+    <%- if @mail_to -%>
+    mail.to                   = '<%= @mail_to %>'
+    <%- end -%>
+    <%- if @mail_cc -%>
+    mail.cc                   = '<%= @mail_cc %>'
+    <%- end -%>
+    <%- if @mail_bcc -%>
+    mail.bcc                  = '<%= @mail_bcc %>'
+    <%- end -%>
+    <%- if @mail_reply_to -%>
+    mail.reply_to             = '<%= @mail_reply_to %>'
+    <%- end -%>
+    <%- if @mail_address -%>
+    mail.address              = '<%= @mail_address %>'
+    <%- end -%>
+    <%- if @mail_port -%>
+    mail.port                 = <%= @mail_port %>
+    <%- end -%>
+    <%- if @mail_domain -%>
+    mail.domain               = '<%= @mail_domain %>'
+    <%- end -%>
+    <%- if @mail_user_name -%>
+    mail.user_name            = '<%= @mail_user_name %>'
+    <%- end -%>
+    <%- if @mail_password -%>
+    mail.password             = '<%= @mail_password %>'
+    <%- end -%>
+    <%- if @mail_authentication -%>
+    mail.authentication       = '<%= @mail_authentication %>'
+    <%- end -%>
+    <%- if @mail_encryption -%>
+    mail.encryption           = <%= ":#{@mail_encryption}" %>
+    <%- end -%>
+    <%- if @mail_send_log_on -%>
+    mail.send_log_on          = <%= @mail_send_log_on %>
+    <%- end -%>
+  end

@@ -1,0 +1,11 @@
+  encrypt_with GPG do |encryption|
+    encryption.keys = {}
+    <%- @gpg_keys.each do |email, key| -%>
+    encryption.keys['<%= email %>'] = <<-KEY
+<%= key -%>
+    KEY
+    <%- end -%>
+    encryption.recipients = <%= @gpg_recipients %>
+    encryption.passphrase = '<%= @gpg_passphrase %>'
+    encryption.mode = <%= ":#{@gpg_mode}" %>
+  end

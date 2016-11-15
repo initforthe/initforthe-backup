@@ -1,0 +1,8 @@
+database SQLite do |db|
+  <%- if @sqlite_path -%>
+  db.path               = "<%= @sqlite_path %>"
+  <%- end -%>
+  <%- if @sqlite_sqlitedump_utility -%>
+  db.sqlitedump_utility = "<%= @sqlite_sqlitedump_utility %>"
+  <%- end -%>
+end

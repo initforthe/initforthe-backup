@@ -1,0 +1,23 @@
+  notify_by Nagios do |nagios|
+    <%- if @nagios_on_success -%>
+    nagios.on_success = <%= @nagios_on_success %>
+    <%- end -%>
+    <%- if @nagios_on_warning -%>
+    nagios.on_warning = <%= @nagios_on_warning %>
+    <%- end -%>
+    <%- if @nagios_on_failure -%>
+    nagios.on_failure = <%= @nagios_on_failure %>
+    <%- end -%>
+    <%- if @nagios_host -%>
+    nagios.nagios_host  = '<%= @nagios_host %>'
+    <%- end -%>
+    <%- if @nagios_port -%>
+    nagios.nagios_port  = <%= @nagios_port %>
+    <%- end -%>
+    <%- if @nagios_service_name -%>
+    nagios.service_name = '<%= @nagios_service_name %>'
+    <%- end -%>
+    <%- if @nagios_service_host -%>
+    nagios.service_host = '<%= @nagios_service_host %>'
+    <%- end -%>
+  end

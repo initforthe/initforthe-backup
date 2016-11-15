@@ -1,0 +1,18 @@
+<% if @root_path %>root_path '<%= @root_path %>'<% end %>
+<% if @tmp_path %>tmp_path '<%= @tmp_path %>'<% end %>
+<% if @data_path %>data_path '<%= @data_path %>'<% end %>
+
+<% if [
+    @logger_quiet, @logfile_max_bytes, @use_syslog, @syslog_ident
+  ].compact.size > 0 %>
+  Logger.configure do
+    <% if @logger_quiet %>console.quiet = true<% end %>
+    <%- if @logfile_max_bytes -%>
+      logfile.max_bytes = <%= @logfile_max_bytes %>
+    <%- end -%>
+    <% if @use_syslog %>syslog_enabled = true<% end %>
+    <%- if @syslog_ident -%>
+      syslog.ident = <%= @syslog_ident %>
+    <%- end -%>
+  end
+<% end %>

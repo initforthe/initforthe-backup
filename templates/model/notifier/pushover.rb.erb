@@ -1,0 +1,26 @@
+  notify_by Pushover do |pushover|
+    <%- if @pushover_on_success -%>
+    pushover.on_success = <%= @pushover_on_success %>
+    <%- end -%>
+    <%- if @pushover_on_warning -%>
+    pushover.on_warning = <%= @pushover_on_warning %>
+    <%- end -%>
+    <%- if @pushover_on_failure -%>
+    pushover.on_failure = <%= @pushover_on_failure %>
+    <%- end -%>
+    <%- if @pushover_user -%>
+    pushover.user = '<%= @pushover_user %>'
+    <%- end -%>
+    <%- if @pushover_token -%>
+    pushover.token = '<%= @pushover_token %>'
+    <%- end -%>
+    <%- if @pushover_title -%>
+    pushover.title = '<%= @pushover_title %>'
+    <%- end -%>
+    <%- if @pushover_device -%>
+    pushover.device = '<%= @pushover_device %>'
+    <%- end -%>
+    <%- if @pushover_priority -%>
+    pushover.priority = '<%= @pushover_priority %>'
+    <%- end -%>
+  end

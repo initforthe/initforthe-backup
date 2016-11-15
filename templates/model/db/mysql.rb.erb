@@ -1,0 +1,42 @@
+  database MySQL do |db|
+    db.name               = "<%= @mysql_name %>"
+    <%- if @mysql_username -%>
+    db.username           = "<%= @mysql_username %>"
+    <%- end -%>
+    <%- if @mysql_password -%>
+    db.password           = "<%= @mysql_password %>"
+    <%- end -%>
+    <%- if @mysql_host -%>
+    db.host               = "<%= @mysql_host %>"
+    <%- end -%>
+    <%- if @mysql_port -%>
+    db.port               = <%= @mysql_port %>
+    <%- end -%>
+    <%- if @mysql_socket -%>
+    db.socket             = "<%= @mysql_socket %>"
+    <%- end -%>
+    <%- if @mysql_sudo_user -%>
+    db.sudo_user          = "<%= @mysql_sudo_user %>"
+    <%- end -%>
+    <%- unless @mysql_skip_tables.nil? -%>
+    db.skip_tables        = <%= Array @mysql_skip_tables %>
+    <%- end -%>
+    <%- unless @mysql_only_tables.nil? -%>
+    db.only_tables        = <%= Array @mysql_only_tables %>
+    <%- end -%>
+    <%- unless @mysql_additional_options.nil? -%>
+    db.additional_options = <%= Array @mysql_additional_options  %>
+    <%- end -%>
+    <%- if @mysql_prepare_backup -%>
+    db.prepare_backup     = <%= @mysql_prepare_backup %>
+    <%- end -%>
+    <%- if @mysql_backup_engine -%>
+    db.backup_engine      = <%= ":#{@mysql_backup_engine}" %>
+    <%- end -%>
+    <%- if @mysql_prepare_options -%>
+    db.prepare_options    = <%= Array @mysql_prepare_options %>
+    <%- end -%>
+    <%- if @mysql_verbose -%>
+    db.verbose            = <%= @mysql_verbose %>
+    <%- end -%>
+  end

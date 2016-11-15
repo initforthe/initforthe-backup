@@ -1,0 +1,32 @@
+  store_with Cloud::RSync do |rsync|
+    rsync.mode = <%= ":#{@rsync_mode}" %>
+    rsync.host = '<%= @rsync_host %>'
+    rsync.port = <%= @rsync_port %>
+    rsync.ssh_user = '<%= @rsync_ssh_user %>'
+    rsync.additional_ssh_options = "<%= @rsync_additional_ssh_options %>"
+    rsync.rsync_user = '<%= @rsync_user %>'
+    rsync.rsync_password = '<%= @rsync_password %>'
+    rsync.rsync_password_file = '<%= @rsync_password_file %>'
+    rsync.additional_rsync_options = <%= @rsync_additional_rsync_options %>
+    rsync.compress = <%= @rsync_compress %>
+    rsync.path = '<%= @rsync_path %>'
+    <%- if @rsync_mirror -%>
+    rsync.mirror = <%= @rsync_mirror %>
+    <%- end -%>
+    <%- if @rsync_archive -%>
+    rsync.archive = <%= @rsync_archive %>
+    <%- end -%>
+    <%- if @rsync_thread_count -%>
+    rsync.thread_count = <%= @rsync_thread_count %>
+    <%- end -%>
+    <%- if @rsync_add or @rsync_exclude -%>
+    rsync.directories do |directory|
+      <%- @rsync_add.each do |added| -%>
+      directory.add '<%= added %>'
+      <%- end -%>
+      <%- @rsync_exclude.each do |excluded| -%>
+      directory.exclude '<%= excluded %>'
+      <%- end -%>
+    end
+    <%- end -%>
+  end

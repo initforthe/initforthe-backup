@@ -1,0 +1,54 @@
+  store_with Cloud::S3 do |s3|
+    <%- if @s3_access_key_id -%>
+    s3.access_key_id      = '<%= @s3_access_key_id %>'
+    <%- end -%>
+    <%- if @s3_secret_access_key -%>
+    s3.secret_access_key  = '<%= @s3_secret_access_key %>'
+    <%- end -%>
+    <%- if @s3_use_iam_profile -%>
+    s3.use_iam_profile    = <%= @s3_use_iam_profile %>
+    <%- end -%>
+    <%- if @s3_region -%>
+    s3.region             = '<%= @s3_region %>'
+    <%- end -%>
+    <%- if @s3_bucket -%>
+    s3.bucket             = '<%= @s3_bucket %>'
+    <%- end -%>
+    <%- if @s3_path -%>
+    s3.path               = '<%= @s3_path %>'
+    <%- end -%>
+    <%- if @s3_chunk_size -%>
+    s3.chunk_size         = <%= @s3_chunk_size %>
+    <%- end -%>
+    <%- if @s3_max_retries -%>
+    s3.max_retries        = <%= @s3_max_retries %>
+    <%- end -%>
+    <%- if @s3_retry_waitsec -%>
+    s3.retry_waitsec      = <%= @s3_retry_waitsec %>
+    <%- end -%>
+    <%- if @s3_encryption -%>
+    s3.encryption         = <%= ":#{@s3_encryption}" %>
+    <%- end -%>
+    <%- if @s3_storage_class -%>
+    s3.storage_class      = <%= ":#{@s3_storage_class}" %>
+    <%- end -%>
+    <%- if @s3_fog_options -%>
+    s3.fog_options        = <%= @s3_fog_options %>
+    <%- end -%>
+    <%- if @s3_mirror -%>
+    s3.mirror             = <%= @s3_mirror %>
+    <%- end -%>
+    <%- if @s3_thread_count -%>
+    s3.thread_count       = <%= @s3_thread_count %>
+    <%- end -%>
+    <%- if @s3_add or @s3_exclude -%>
+    s3.directories do |directory|
+      <%- @s3_add.each do |added| -%>
+      directory.add '<%= added %>'
+      <%- end -%>
+      <%- @s3_exclude.each do |excluded| -%>
+      directory.exclude '<%= excluded %>'
+      <%- end -%>
+    end
+    <%- end -%>
+  end

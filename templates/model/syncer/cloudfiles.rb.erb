@@ -1,0 +1,45 @@
+  store_with Cloud::CloudFiles do |cf|
+    cf.api_key            = '<%= @cloudfiles_api_key %>'
+    cf.username           = '<%= @cloudfiles_username %>'
+    cf.container          = '<%= @cloudfiles_container %>'
+    cf.segments_container = '<%= @cloudfiles_segments_container %>'
+    cf.segment_size       = <%= @cloudfiles_segment_size %>
+    cf.path               = '<%= @cloudfiles_path %>'
+    <%- if @cloudfiles_auth_url -%>
+    cf.auth_url           = '<%= @cloudfiles_auth_url %>'
+    <%- end -%>
+    <%- if @cloudfiles_region -%>
+    cf.region             = <%= ":#{@cloudfiles_region}" %>
+    <%- end -%>
+    <%- if @cloudfiles_servicenet -%>
+    cf.servicenet         = '<%= @cloudfiles_servicenet %>'
+    <%- end -%>
+    <%- if @cloudfiles_days_to_keep -%>
+    cf.days_to_keep       = <%= @cloudfiles_days_to_keep %>
+    <%- end -%>
+    <%- if @cloudfiles_max_retries -%>
+    cf.max_retries        = <%= @cloudfiles_max_retries %>
+    <%- end -%>
+    <%- if @cloudfiles_retry_waitsec -%>
+    cf.retry_waitsec      = <%= @cloudfiles_retry_waitsec %>
+    <%- end -%>
+    <%- if @cloudfiles_fog_options -%>
+    cf.fog_options        = <%= @cloudfiles_fog_options %>
+    <%- end -%>
+    <%- if @cloudfiles_mirror -%>
+    cf.mirror             = <%= @cloudfiles_mirror %>
+    <%- end -%>
+    <%- if @cloudfiles_thread_count -%>
+    cf.thread_count       = <%= @cloudfiles_thread_count %>
+    <%- end -%>
+    <%- if @cloudfiles_add or @cloudfiles_exclude -%>
+    cf.directories do |directory|
+      <%- @cloudfiles_add.each do |added| -%>
+      directory.add '<%= added %>'
+      <%- end -%>
+      <%- @cloudfiles_exclude.each do |excluded| -%>
+      directory.exclude '<%= excluded %>'
+      <%- end -%>
+    end
+    <%- end -%>
+  end

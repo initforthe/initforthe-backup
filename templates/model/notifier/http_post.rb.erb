@@ -1,0 +1,29 @@
+  notify_by HttpPost do |post|
+    <%- if @http_post_on_success -%>
+    post.on_success = <%= @http_post_on_success %>
+    <%- end -%>
+    <%- if @http_post_on_warning -%>
+    post.on_warning = <%= @http_post_on_warning %>
+    <%- end -%>
+    <%- if @http_post_on_failure -%>
+    post.on_failure = <%= @http_post_on_failure %>
+    <%- end -%>
+    <%- if @http_post_uri -%>
+    post.uri = '<%= @http_post_uri %>'
+    <%- end -%>
+    <%- if @http_post_headers -%>
+    post.headers = <%= @http_post_headers %>
+    <%- end -%>
+    <%- if @http_post_params -%>
+    post.params = <%= @http_post_params %>
+    <%- end -%>
+    <%- if @http_post_success_codes -%>
+    post.success_codes = <%= @http_post_success_codes %>
+    <%- end -%>
+    <%- if @http_post_ssl_verify_peer -%>
+    post.ssl_verify_peer = <%= @http_post_ssl_verify_peer %>
+    <%- end -%>
+    <%- if @http_post_ssl_ca_file -%>
+    post.ssl_ca_file = '<%= @http_post_ssl_ca_file %>'
+    <%- end -%>
+  end

@@ -1,0 +1,21 @@
+---
+language: ruby
+bundler_args: --without system_tests
+script: "bundle exec metadata-json-lint --strict-license --fail-on-warnings metadata.json && bundle exec rake spec SPEC_OPTS='--format documentation'"
+# after_success:
+#   - git clone -q git://github.com/puppetlabs/ghpublisher.git .forge-release
+#   - .forge-release/publish
+rvm:
+  - 2.0.0
+  - 2.1.6
+env:
+  matrix:
+  - PUPPET_GEM_VERSION="~> 3.7.1"
+  - PUPPET_GEM_VERSION="~> 3.7"
+  - PUPPET_GEM_VERSION="~> 3"
+  - PUPPET_GEM_VERSION="~> 3" PARSER="future"
+  - PUPPET_GEM_VERSION="~> 4"
+matrix:
+  fast_finish: true
+notifications:
+  email: false

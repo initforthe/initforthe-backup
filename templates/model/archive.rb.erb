@@ -1,0 +1,17 @@
+  archive <%= [@title, 'archive'].join('_').to_sym %> do |archive|
+    <%- if @archive_root -%>
+    archive.root = "<%= @archive_root %>"
+    <%- end -%>
+    <%- if @archive_use_sudo -%>
+    archive.use_sudo = <%= @archive_use_sudo %>
+    <%- end -%>
+    <%- Array(@archive_add).each do |path| -%>
+    archive.add "<%= path %>"
+    <%- end unless @archive_add.nil? -%>
+    <%- Array(@archive_exclude).each do |path| -%>
+    archive.exclude "<%= path %>"
+    <%- end unless @archive_exclude.nil? -%>
+    <%- if @archive_tar_options -%>
+    archive.tar_options = "<%= @archive_tar_options %>"
+    <%- end -%>
+  end

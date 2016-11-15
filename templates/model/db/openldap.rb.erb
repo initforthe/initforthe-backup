@@ -1,0 +1,15 @@
+  database OpenLDAP do |db|
+    db.name            = "<%= @openldap_name %>"
+    <%- if @openldap_slapcat_args -%>
+    db.slapcat_args    = <%= @openldap_slapcat_args %>
+    <%- end -%>
+    <%- if @openldap_use_sudo -%>
+    db.use_sudo        = <%= @openldap_use_sudo %>
+    <%- end -%>
+    <%- if @openldap_slapcat_conf -%>
+    db.slapcat_conf    = "<%= @openldap_slapcat_conf %>"
+    <%- end -%>
+    <%- if @openldap_slapcat_utility -%>
+    db.slapcat_utility = "<%= @openldap_slapcat_utility %>"
+    <%- end -%>
+  end

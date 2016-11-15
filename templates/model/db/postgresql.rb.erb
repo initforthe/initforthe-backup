@@ -1,0 +1,30 @@
+  database PostgreSQL do |db|
+    db.name               = "<%= @postgresql_name %>"
+    <%- if @postgresql_username -%>
+    db.username           = "<%= @postgresql_username %>"
+    <%- end -%>
+    <%- if @postgresql_password -%>
+    db.password           = "<%= @postgresql_password %>"
+    <%- end -%>
+    <%- if @postgresql_host -%>
+    db.host               = "<%= @postgresql_host %>"
+    <%- end -%>
+    <%- if @postgresql_port -%>
+    db.port               = <%= @postgresql_port %>
+    <%- end -%>
+    <%- if @postgresql_socket -%>
+    db.socket             = "<%= @postgresql_socket %>"
+    <%- end -%>
+    <%- if @postgresql_skip_tables -%>
+    db.skip_tables        = <%= @postgresql_skip_tables %>
+    <%- end -%>
+    <%- if @postgresql_only_tables -%>
+    db.only_tables        = <%= @postgresql_only_tables %>
+    <%- end -%>
+    <%- if @postgresql_additional_options -%>
+    db.additional_options = <%= @postgresql_additional_options %>
+    <%- end -%>
+    <%- if @postgresql_sudo_user -%>
+    db.sudo_user          = "<%= @postgresql_sudo_user %>"
+    <%- end -%>
+  end

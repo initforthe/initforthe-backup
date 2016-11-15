@@ -1,0 +1,11 @@
+  store_with SFTP do |server|
+    server.username = '<%= @scp_username %>'
+    server.password = '<%= @scp_password %>'
+    server.ip       = '<%= @scp_ip %>'
+    server.port     = <%= @scp_port %>
+    server.path     = '<%= @scp_path %>'
+    server.keep     = <%= @scp_keep %>
+    <%- if @scp_ssh_options -%>
+    server.ssh_options = <%= @scp_ssh_options %>
+    <%- end -%>
+  end
