@@ -6,9 +6,13 @@ class backup::install {
   }
 
   if $::backup::install_dependencies {
-    package { $::backup::package_dependencies:
-      ensure => 'installed',
-      before => Package['rubygem-backup'],
+    $::backup::package_dependencies.each |$dep| {
+      if !defined(Package[$dep]) {
+        package { $dep:
+          ensure => 'installed',
+          before => Package['rubygem-backup'],
+        }
+      }
     }
   }
 
