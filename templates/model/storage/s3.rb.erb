@@ -35,4 +35,7 @@
     <%- if @s3_fog_options -%>
     s3.fog_options        = <%= @s3_fog_options %>
     <%- end -%>
+    <%- if @s3_keep -%>
+    s3.keep               = <%= @s3_keep %>
+    <%- end -%>
   end

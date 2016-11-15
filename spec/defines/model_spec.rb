@@ -685,7 +685,8 @@ end
         s3_use_iam_profile: true,
         s3_region: 'us-east-1',
         s3_bucket: 'bucket-name',
-        s3_path: 'path/to/backups'
+        s3_path: 'path/to/backups',
+        s3_keep: 10,
       }
     }
 
@@ -697,6 +698,7 @@ end
     s3.region             = 'us-east-1'
     s3.bucket             = 'bucket-name'
     s3.path               = 'path/to/backups'
+    s3.keep               = 10
   end
     EOF
     )}

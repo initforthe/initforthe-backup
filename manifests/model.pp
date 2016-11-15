@@ -195,6 +195,7 @@ define backup::model (
   $s3_storage_class               = undef,
   $s3_chunk_size                  = undef,
   $s3_fog_options                 = undef,
+  $s3_keep                        = undef,
   # Syncer options
   $s3_mirror                      = undef,
   $s3_thread_count                = undef,
