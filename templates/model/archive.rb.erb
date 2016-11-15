@@ -1,4 +1,4 @@
-  archive <%= [@title, 'archive'].join('_').to_sym %> do |archive|
+  archive <%= ":#{[@title, 'archive'].join('_')}" %> do |archive|
     <%- if @archive_root -%>
     archive.root = "<%= @archive_root %>"
     <%- end -%>
