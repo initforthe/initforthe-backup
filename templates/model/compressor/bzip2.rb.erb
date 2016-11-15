@@ -1,4 +1,7 @@
-  compress_with Bzip2<% if @bzip2_compression_level %> do |compression|
+<%- if @bzip2_compression_level -%>
+  compress_with Bzip2 do |compression|
     compression.level = <%= @bzip2_compression_level %>
   end
-  <%- end -%>
+<%- else -%>
+  compress_with Bzip2
+<%- end -%>
