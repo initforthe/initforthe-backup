@@ -1,6 +1,6 @@
   archive <%= ":#{[@title, 'archive'].join('_')}" %> do |archive|
     <%- if @archive_root -%>
-    archive.root = "<%= @archive_root %>"
+    archive.root "<%= @archive_root %>"
     <%- end -%>
     <%- if @archive_use_sudo -%>
     archive.use_sudo = <%= @archive_use_sudo %>
