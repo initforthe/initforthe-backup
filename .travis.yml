@@ -8,6 +8,8 @@ script: "bundle exec metadata-json-lint --strict-license --fail-on-warnings meta
 rvm:
   - 2.0.0
   - 2.1.6
+  - 2.2.10
+  - 2.3.3
 env:
   matrix:
   - PUPPET_GEM_VERSION="~> 3.7.1"
@@ -19,4 +21,3 @@ matrix:
   fast_finish: true
 notifications:
   email: false
-
