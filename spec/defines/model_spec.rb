@@ -44,7 +44,7 @@ describe 'backup::model' do
       :command => "/usr/local/bin/backup perform --trigger my_model --config-file '/etc/backup/config.rb' --tmp-path ~/Backup/.tmp"
     })}
     it { should contain_concat__fragment("model-my_model-archive").with_content(<<-EOF
-  archive my_model_archive do |archive|
+  archive :my_model_archive do |archive|
     archive.add "/var/baz"
   end
     EOF
@@ -63,8 +63,8 @@ describe 'backup::model' do
       }
 
       it { should contain_concat__fragment("model-my_model-archive").with_content(<<-EOF
-  archive my_model_archive do |archive|
-    archive.root = "/var"
+  archive :my_model_archive do |archive|
+    archive.root "/var"
     archive.use_sudo = true
     archive.add "/var/baz"
     archive.exclude "/var/bar"
@@ -292,7 +292,7 @@ end
       }
     }
 
-    it { should contain_concat__fragment('model-my_model-compressor').with_content("  compress_with Bzip2") }
+    it { should contain_concat__fragment('model-my_model-compressor').with_content("  compress_with Bzip2\n") }
 
     context 'with a bzip2_compression_level = 9' do
       let(:params) {
@@ -304,11 +304,12 @@ end
         }
       }
 
-      it { should contain_concat__fragment('model-my_model-compressor').with_content(<<-EOF
+      it { should contain_concat__fragment('model-my_model-compressor')
+        .with_content(<<-EOF
   compress_with Bzip2 do |compression|
     compression.level = 9
   end
-      EOF
+        EOF
       )}
     end
   end
@@ -322,7 +323,7 @@ end
       }
     }
 
-    it { should contain_concat__fragment('model-my_model-compressor').with_content("  compress_with Gzip") }
+    it { should contain_concat__fragment('model-my_model-compressor').with_content("  compress_with Gzip\n") }
 
     context 'with a gzip_compression_level = 9 and gzip_rsyncable = true' do
       let(:params) {
