@@ -586,7 +586,7 @@ define backup::model (
 
   cron { "${title}-backup":
     ensure   => $ensure,
-    command  => "${cd_command}${gem_bin_path}/backup perform --trigger ${title} --config-file '/etc/backup/config.rb' --tmp-path ${tmp_path}",
+    command  => "${cd_command}${gem_bin_path}/backup perform --trigger ${title} --config-file '/etc/backup/config.rb' --tmp-path ${tmp_path} > /dev/null 2>&1 || true",
     minute   => $minute,
     hour     => $hour,
     monthday => $monthday,
