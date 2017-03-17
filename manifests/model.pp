@@ -579,14 +579,14 @@ define backup::model (
   }
 
   if $cwd {
-    $cwd = "cd ${cwd} && "
+    $cd_command = "cd ${cwd} && "
   } else {
-    $envs = ''
+    $cd_command = ''
   }
 
   cron { "${title}-backup":
     ensure   => $ensure,
-    command  => "${cwd}${gem_bin_path}/backup perform --trigger ${title} --config-file '/etc/backup/config.rb' --tmp-path ${tmp_path}",
+    command  => "${cd_command}${gem_bin_path}/backup perform --trigger ${title} --config-file '/etc/backup/config.rb' --tmp-path ${tmp_path}",
     minute   => $minute,
     hour     => $hour,
     monthday => $monthday,
