@@ -10,7 +10,7 @@ define backup::model (
   $weekday                        = '*',
   $gem_bin_path                   = '/usr/local/bin',
   $tmp_path                       = '~/Backup/.tmp',
-  $env_home                       = undef,
+  $cwd                            = undef,
 
   $ensure                         = present,
   $utilities                      = undef,
@@ -578,15 +578,15 @@ define backup::model (
     }
   }
 
-  if $env_home {
-    $envs = "HOME=${env_home} "
+  if $cwd {
+    $cwd = "cd ${cwd} && "
   } else {
     $envs = ''
   }
 
   cron { "${title}-backup":
     ensure   => $ensure,
-    command  => "${envs}${gem_bin_path}/backup perform --trigger ${title} --config-file '/etc/backup/config.rb' --tmp-path ${tmp_path}",
+    command  => "${cwd}${gem_bin_path}/backup perform --trigger ${title} --config-file '/etc/backup/config.rb' --tmp-path ${tmp_path}",
     minute   => $minute,
     hour     => $hour,
     monthday => $monthday,
