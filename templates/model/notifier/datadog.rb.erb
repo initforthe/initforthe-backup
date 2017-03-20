@@ -1,13 +1,7 @@
   notify_by DataDog do |datadog|
-    <%- if @datadog_on_success -%>
     datadog.on_success           = <%= @datadog_on_success %>
-    <%- end -%>
-    <%- if @datadog_on_warning -%>
     datadog.on_warning           = <%= @datadog_on_warning %>
-    <%- end -%>
-    <%- if @datadog_on_failure -%>
     datadog.on_failure           = <%= @datadog_on_failure %>
-    <%- end -%>
     <%- if @datadog_api_key -%>
     datadog.api_key              = '<%= @datadog_api_key %>'
     <%- end -%>

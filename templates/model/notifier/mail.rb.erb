@@ -1,13 +1,7 @@
   notify_by Mail do |mail|
-    <%- if @mail_on_success -%>
     mail.on_success           = <%= @mail_on_success %>
-    <%- end -%>
-    <%- if @mail_on_warning -%>
     mail.on_warning           = <%= @mail_on_warning %>
-    <%- end -%>
-    <%- if @mail_on_failure -%>
     mail.on_failure           = <%= @mail_on_failure %>
-    <%- end -%>
     <%- if @mail_from -%>
     mail.from                 = '<%= @mail_from %>'
     <%- end -%>

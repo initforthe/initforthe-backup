@@ -1,13 +1,7 @@
   notify_by HttpPost do |post|
-    <%- if @http_post_on_success -%>
     post.on_success = <%= @http_post_on_success %>
-    <%- end -%>
-    <%- if @http_post_on_warning -%>
     post.on_warning = <%= @http_post_on_warning %>
-    <%- end -%>
-    <%- if @http_post_on_failure -%>
     post.on_failure = <%= @http_post_on_failure %>
-    <%- end -%>
     <%- if @http_post_uri -%>
     post.uri = '<%= @http_post_uri %>'
     <%- end -%>

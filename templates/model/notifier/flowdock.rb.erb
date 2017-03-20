@@ -1,13 +1,7 @@
   notify_by FlowDock do |flowdock|
-    <%- if @flowdock_on_success -%>
     flowdock.on_success = <%= @flowdock_on_success %>
-    <%- end -%>
-    <%- if @flowdock_on_warning -%>
     flowdock.on_warning = <%= @flowdock_on_warning %>
-    <%- end -%>
-    <%- if @flowdock_on_failure -%>
     flowdock.on_failure = <%= @flowdock_on_failure %>
-    <%- end -%>
     <%- if @flowdock_token -%>
     flowdock.token      = '<%= @flowdock_token %>'
     <%- end -%>

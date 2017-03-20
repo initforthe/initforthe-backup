@@ -1,13 +1,7 @@
   notify_by Twitter do |tweet|
-    <%- if @twitter_on_success -%>
     tweet.on_success = <%= @twitter_on_success %>
-    <%- end -%>
-    <%- if @twitter_on_warning -%>
     tweet.on_warning = <%= @twitter_on_warning %>
-    <%- end -%>
-    <%- if @twitter_on_failure -%>
     tweet.on_failure = <%= @twitter_on_failure %>
-    <%- end -%>
     <%- if @twitter_consumer_key -%>
     tweet.consumer_key       = '<%= @twitter_consumer_key %>'
     <%- end -%>

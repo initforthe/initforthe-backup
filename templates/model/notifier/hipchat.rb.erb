@@ -1,13 +1,7 @@
   notify_by Hipchat do |hipchat|
-    <%- if @hipchat_on_success -%>
     hipchat.on_success = <%= @hipchat_on_success %>
-    <%- end -%>
-    <%- if @hipchat_on_warning -%>
     hipchat.on_warning = <%= @hipchat_on_warning %>
-    <%- end -%>
-    <%- if @hipchat_on_failure -%>
     hipchat.on_failure = <%= @hipchat_on_failure %>
-    <%- end -%>
     <%- if @hipchat_success_color -%>
     hipchat.success_color = '<%= @hipchat_success_color %>'
     <%- end -%>

@@ -1,13 +1,7 @@
   notify_by Ses do |ses|
-    <%- if @ses_on_success -%>
     ses.on_success = <%= @ses_on_success %>
-    <%- end -%>
-    <%- if @ses_on_warning -%>
     ses.on_warning = <%= @ses_on_warning %>
-    <%- end -%>
-    <%- if @ses_on_failure -%>
     ses.on_failure = <%= @ses_on_failure %>
-    <%- end -%>
     <%- if @ses_access_key_id -%>
     ses.access_key_id = '<%= @ses_access_key_id %>'
     <%- end -%>

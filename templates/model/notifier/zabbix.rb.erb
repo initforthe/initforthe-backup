@@ -1,13 +1,7 @@
   notify_by Zabbix do |zabbix|
-    <%- if @zabbix_on_success -%>
     zabbix.on_success = <%= @zabbix_on_success %>
-    <%- end -%>
-    <%- if @zabbix_on_warning -%>
     zabbix.on_warning = <%= @zabbix_on_warning %>
-    <%- end -%>
-    <%- if @zabbix_on_failure -%>
     zabbix.on_failure = <%= @zabbix_on_failure %>
-    <%- end -%>
     <%- if @zabbix_host -%>
     zabbix.zabbix_host  = '<%= @zabbix_host %>'
     <%- end -%>

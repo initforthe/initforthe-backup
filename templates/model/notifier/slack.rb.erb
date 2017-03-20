@@ -1,13 +1,7 @@
   notify_by Slack do |slack|
-    <%- if @slack_on_success -%>
     slack.on_success = <%= @slack_on_success %>
-    <%- end -%>
-    <%- if @slack_on_warning -%>
     slack.on_warning = <%= @slack_on_warning %>
-    <%- end -%>
-    <%- if @slack_on_failure -%>
     slack.on_failure = <%= @slack_on_failure %>
-    <%- end -%>
     <%- if @slack_webhook_url -%>
     slack.webhook_url = '<%= @slack_webhook_url %>'
     <%- end -%>

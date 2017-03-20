@@ -1,13 +1,7 @@
   notify_by Pushover do |pushover|
-    <%- if @pushover_on_success -%>
     pushover.on_success = <%= @pushover_on_success %>
-    <%- end -%>
-    <%- if @pushover_on_warning -%>
     pushover.on_warning = <%= @pushover_on_warning %>
-    <%- end -%>
-    <%- if @pushover_on_failure -%>
     pushover.on_failure = <%= @pushover_on_failure %>
-    <%- end -%>
     <%- if @pushover_user -%>
     pushover.user = '<%= @pushover_user %>'
     <%- end -%>
